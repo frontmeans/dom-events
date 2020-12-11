@@ -70,7 +70,98 @@
 					<a href="https://codecov.io/gh/frontmeans/dom-events"><img src="https://codecov.io/gh/frontmeans/dom-events/branch/master/graph/badge.svg" alt="codecov"></a>
 					<a href="https://github.com/frontmeans/dom-events"><img src="https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational" alt="GitHub Project"></a>
 				<a href="https://frontmeans.github.io/dom-events/index.html"><img src="https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational" alt="API Documentation"></a></p>
-				<p>Extension of <a href="https://www.npmjs.com/package/@proc7ts/fun-events">@proc7ts/fun-events</a> for DOM events processing in reactive style.</p>
+				<p>Extension of <a href="https://www.npmjs.com/package/@proc7ts/fun-events">@proc7ts/fun-events</a> for DOM event processing in reactive style.</p>
+				<a href="#dom-events" id="dom-events" style="color: inherit; text-decoration: none;">
+					<h2>DOM Events</h2>
+				</a>
+				<p>DOM events are supported by <code>OnDomEvent</code> and <code>DomEventDispatcher</code>.</p>
+				<p><code>OnDomEvent</code> extends an <code>OnEvent</code> sender with DOM-specific functionality. It sends DOM <code>Events</code> to <code>DomEventListener</code>s</p>
+				<p><code>DomEventDispatcher</code> can be attached to arbitrary <code>EventTarget</code>. It constructs an <code>OnDomEvent</code> senders for each event
+				type and dispatches DOM events.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-button&#x27;</span>));
+
+dispatcher.on(<span class="hljs-string">&#x27;click&#x27;</span>)(submit);
+dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class="hljs-string">&#x27;click&#x27;</span>));</code></pre>
+				<a href="#dom-specific-actions" id="dom-specific-actions" style="color: inherit; text-decoration: none;">
+					<h3>DOM-specific Actions</h3>
+				</a>
+				<p>Along with basic API this library provides DOM-specific actions.</p>
+				<a href="#capturedomevents" id="capturedomevents" style="color: inherit; text-decoration: none;">
+					<h4><code>captureDomEvents()</code></h4>
+				</a>
+				<p>Creates an <code>OnDomEvent</code> sender that enables event capturing by default.</p>
+				<p>This corresponds to specifying <code>true</code> or <code>{ capture: true }</code> as a second argument to <code>EventTarget.addEventListener()</code>.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { captureDomEvents, DomEventDispatcher } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-keyword">const</span> container = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-container&#x27;</span>);
+
+<span class="hljs-comment">// Clicking on the inner elements would be handled by container first.</span>
+<span class="hljs-keyword">new</span> DomEventDispatcher(container).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(captureDomEvents)(handleContainerClick);
+
+<span class="hljs-comment">// The above is the same as</span>
+container.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleContainerClick, <span class="hljs-literal">true</span>);</code></pre>
+				<a href="#handledomevents" id="handledomevents" style="color: inherit; text-decoration: none;">
+					<h3><code>handleDomEvents()</code></h3>
+				</a>
+				<p>Creates a DOM event sender mapper function that enables or disables default DOM event handlers.</p>
+				<p>Corresponds to specifying <code>{ passive: true }</code> as a second argument to <code>EventTarget.addEventListener()</code> when
+				<code>true</code> passed as parameter, or no parameters passes.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, handleDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-comment">// Scrolling events won&#x27;t be prevented.</span>
+<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;scroll&#x27;</span>).do(handleDomEvents())(handleScroll);
+
+<span class="hljs-comment">// The above is the same as</span>
+<span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">&#x27;scroll&#x27;</span>, handleScroll, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">true</span> });</code></pre>
+				<p>Causes listeners to invoke an <code>Event.preventDefault()</code> method prior to event handling when <code>false</code> passed as parameter.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, handleDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-comment">// Clicking on the link won&#x27;t lead to navigation.</span>
+<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-href&#x27;</span>)).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(handleDomEvents(<span class="hljs-literal">false</span>))(doSomething);
+
+<span class="hljs-comment">// The above is the same as</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-href&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+  event.preventDefault();
+  doSomething(event);
+});</code></pre>
+				<a href="#interceptdomevents" id="interceptdomevents" style="color: inherit; text-decoration: none;">
+					<h4><code>interceptDomEvents()</code></h4>
+				</a>
+				<p>Creates an <code>OnDomEvent</code> sender preventing other listeners of the same event from being called.</p>
+				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation">Event.stopImmediatePropagation()</a> method prior to event handing.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, interceptDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>))
+<span class="hljs-keyword">const</span> onClick = dispatcher.on(<span class="hljs-string">&#x27;click&#x27;</span>);
+
+<span class="hljs-comment">// The ascendants won&#x27;t receive a click the div.</span>
+onClick.do(interceptDomEvents)(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;1&#x27;</span>)); <span class="hljs-comment">// This is the last handler </span>
+onClick(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;2&#x27;</span>));                        <span class="hljs-comment">// This one won&#x27;t be called</span>
+
+dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class="hljs-string">&#x27;click&#x27;</span>)); <span class="hljs-comment">// console: 1</span>
+
+<span class="hljs-comment">// The first listener registration above is the same as</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+  event.stopImmediatePropagation();
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;1&#x27;</span>);
+});</code></pre>
+				<a href="#stopdomevents" id="stopdomevents" style="color: inherit; text-decoration: none;">
+					<h4><code>stopDomEvents()</code></h4>
+				</a>
+				<p>Creates an <a href="interfaces/OnDomEvent.html">OnDomEvent</a> sender preventing further propagation of events in the capturing and bubbling phases.</p>
+				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation">Event.stopPropagation()</a> method prior to event handing.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, stopDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+
+<span class="hljs-comment">// The ascendants won&#x27;t receive a click the div.</span>
+<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>)).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(stopDomEvents)(handleClick);
+
+<span class="hljs-comment">// The above is the same as</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+  event.stopPropagation();
+  handleClick(event);
+});</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
