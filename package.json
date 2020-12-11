@@ -1,6 +1,6 @@
 {
   "name": "@frontmeans/dom-events",
-  "version": "1.0.0-dev.0",
+  "version": "1.0.0-dev.1",
   "description": "Functional DOM events processor",
   "keywords": [
     "dom-events",
