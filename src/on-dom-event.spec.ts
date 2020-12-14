@@ -1,4 +1,4 @@
-import { EventNotifier, EventReceiver, letInEvents, onceEvent } from '@proc7ts/fun-events';
+import { EventNotifier, EventReceiver, firstEvent, letInEvents } from '@proc7ts/fun-events';
 import { neverSupply, Supply } from '@proc7ts/primitives';
 import { OnDomEvent, onDomEventBy } from './on-dom-event';
 import Mock = jest.Mock;
@@ -20,7 +20,7 @@ describe('OnDomEvent', () => {
     mockListener = jest.fn();
   });
 
-  describe('onceEvent', () => {
+  describe('firstEvent', () => {
 
     let supply: Supply;
     let offSpy: SpyInstance;
@@ -34,11 +34,11 @@ describe('OnDomEvent', () => {
     });
 
     it('registers event receiver', () => {
-      expect(onDomEvent.do(onceEvent)(mockListener)).toBe(supply);
+      expect(onDomEvent.do(firstEvent)(mockListener)).toBe(supply);
       expect(mockRegister).toHaveBeenCalled();
     });
     it('unregisters notified event receiver', () => {
-      onDomEvent.do(onceEvent)(mockListener);
+      onDomEvent.do(firstEvent)(mockListener);
       expect(offSpy).not.toHaveBeenCalled();
 
       const event = new KeyboardEvent('click');
@@ -58,7 +58,7 @@ describe('OnDomEvent', () => {
         events.send(event);
       });
 
-      onDomEvent.do(onceEvent)(mockListener);
+      onDomEvent.do(firstEvent)(mockListener);
 
       expect(offSpy).toHaveBeenCalled();
       expect(mockListener).toHaveBeenCalledWith(event);
@@ -68,17 +68,17 @@ describe('OnDomEvent', () => {
       const event = new KeyboardEvent('click');
 
       supply = neverSupply();
-      onDomEvent.do(onceEvent)({ supply, receive: (_context, e) => mockListener(e) });
+      onDomEvent.do(firstEvent)({ supply, receive: (_context, e) => mockListener(e) });
       events.send(event);
       expect(mockListener).not.toHaveBeenCalled();
     });
     it('never sends events after their supply is cut off', () => {
-      onDomEvent.do(onceEvent)(mockListener).off();
+      onDomEvent.do(firstEvent)(mockListener).off();
       events.send(new KeyboardEvent('click'));
       expect(mockListener).not.toHaveBeenCalled();
     });
     it('sends only one event', () => {
-      onDomEvent.do(onceEvent)(mockListener);
+      onDomEvent.do(firstEvent)(mockListener);
 
       const event1 = new KeyboardEvent('keydown');
 

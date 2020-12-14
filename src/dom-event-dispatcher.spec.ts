@@ -1,4 +1,4 @@
-import { onceEvent } from '@proc7ts/fun-events';
+import { firstEvent } from '@proc7ts/fun-events';
 import { captureDomEvents } from './actions';
 import { DomEventDispatcher } from './dom-event-dispatcher';
 import Mock = jest.Mock;
@@ -50,16 +50,16 @@ describe('DomEventDispatcher', () => {
 
     describe('once', () => {
       it('registers listener', () => {
-        dispatcher.on('click').do(onceEvent)(mockListener);
+        dispatcher.on('click').do(firstEvent)(mockListener);
         expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, undefined);
       });
       it('registers capturing listener', () => {
-        dispatcher.on('click').do(captureDomEvents, onceEvent)(mockListener);
+        dispatcher.on('click').do(captureDomEvents, firstEvent)(mockListener);
         expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, true);
       });
       it('unregisters listener', () => {
 
-        const supply = dispatcher.on('click').do(captureDomEvents, onceEvent)(mockListener);
+        const supply = dispatcher.on('click').do(captureDomEvents, firstEvent)(mockListener);
 
         supply.off();
 
@@ -67,7 +67,7 @@ describe('DomEventDispatcher', () => {
       });
       it('unregisters listener after receiving event', () => {
 
-        const supply = dispatcher.on('click').do(captureDomEvents, onceEvent)(mockListener);
+        const supply = dispatcher.on('click').do(captureDomEvents, firstEvent)(mockListener);
 
         registeredListener(new KeyboardEvent('click'));
 
