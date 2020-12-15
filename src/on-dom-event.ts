@@ -70,7 +70,6 @@ export function onDomEventBy<TEvent extends Event>(
   }) as OnDomEvent<TEvent>;
 
   onDomEvent[OnEvent__symbol] = OnDomEvent$sample[OnEvent__symbol];
-  onDomEvent.by = OnDomEvent$sample.by;
   onDomEvent.do = OnDomEvent$sample.do;
   onDomEvent.then = OnDomEvent$sample.then;
 

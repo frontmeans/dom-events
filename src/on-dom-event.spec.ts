@@ -1,4 +1,4 @@
-import { EventNotifier, EventReceiver, firstEvent, letInEvents } from '@proc7ts/fun-events';
+import { EventNotifier, EventReceiver, onceOn, supplyOn } from '@proc7ts/fun-events';
 import { neverSupply, Supply } from '@proc7ts/primitives';
 import { OnDomEvent, onDomEventBy } from './on-dom-event';
 import Mock = jest.Mock;
@@ -20,7 +20,7 @@ describe('OnDomEvent', () => {
     mockListener = jest.fn();
   });
 
-  describe('firstEvent', () => {
+  describe('onceOn', () => {
 
     let supply: Supply;
     let offSpy: SpyInstance;
@@ -34,11 +34,11 @@ describe('OnDomEvent', () => {
     });
 
     it('registers event receiver', () => {
-      expect(onDomEvent.do(firstEvent)(mockListener)).toBe(supply);
+      expect(onDomEvent.do(onceOn)(mockListener)).toBe(supply);
       expect(mockRegister).toHaveBeenCalled();
     });
     it('unregisters notified event receiver', () => {
-      onDomEvent.do(firstEvent)(mockListener);
+      onDomEvent.do(onceOn)(mockListener);
       expect(offSpy).not.toHaveBeenCalled();
 
       const event = new KeyboardEvent('click');
@@ -58,7 +58,7 @@ describe('OnDomEvent', () => {
         events.send(event);
       });
 
-      onDomEvent.do(firstEvent)(mockListener);
+      onDomEvent.do(onceOn)(mockListener);
 
       expect(offSpy).toHaveBeenCalled();
       expect(mockListener).toHaveBeenCalledWith(event);
@@ -68,17 +68,17 @@ describe('OnDomEvent', () => {
       const event = new KeyboardEvent('click');
 
       supply = neverSupply();
-      onDomEvent.do(firstEvent)({ supply, receive: (_context, e) => mockListener(e) });
+      onDomEvent.do(onceOn)({ supply, receive: (_context, e) => mockListener(e) });
       events.send(event);
       expect(mockListener).not.toHaveBeenCalled();
     });
     it('never sends events after their supply is cut off', () => {
-      onDomEvent.do(firstEvent)(mockListener).off();
+      onDomEvent.do(onceOn)(mockListener).off();
       events.send(new KeyboardEvent('click'));
       expect(mockListener).not.toHaveBeenCalled();
     });
     it('sends only one event', () => {
-      onDomEvent.do(firstEvent)(mockListener);
+      onDomEvent.do(onceOn)(mockListener);
 
       const event1 = new KeyboardEvent('keydown');
 
@@ -89,7 +89,7 @@ describe('OnDomEvent', () => {
     });
   });
 
-  describe('letInEvents', () => {
+  describe('supplyOn', () => {
 
     let supply: Supply;
     let offSpy: Mock;
@@ -109,7 +109,7 @@ describe('OnDomEvent', () => {
       const event1 = new KeyboardEvent('keydown');
       const event2 = new KeyboardEvent('keyup');
 
-      onDomEvent.do(letInEvents(requiredSupply))(mockListener);
+      onDomEvent.do(supplyOn(requiredSupply))(mockListener);
       events.send(event1);
       events.send(event2);
 
@@ -121,7 +121,7 @@ describe('OnDomEvent', () => {
       const event = new KeyboardEvent('click');
       const whenOff = jest.fn();
 
-      onDomEvent.do(letInEvents(neverSupply()))(mockListener).whenOff(whenOff);
+      onDomEvent.do(supplyOn(neverSupply()))(mockListener).whenOff(whenOff);
       events.send(event);
       expect(mockListener).not.toHaveBeenCalled();
       expect(whenOff).toHaveBeenCalled();
@@ -132,7 +132,7 @@ describe('OnDomEvent', () => {
       const event2 = new KeyboardEvent('keyup');
       const whenOff = jest.fn();
 
-      onDomEvent.do(letInEvents(requiredSupply))(mockListener).whenOff(whenOff);
+      onDomEvent.do(supplyOn(requiredSupply))(mockListener).whenOff(whenOff);
       events.send(event1);
       supply.off('reason');
       events.send(event2);
@@ -148,7 +148,7 @@ describe('OnDomEvent', () => {
       const event2 = new KeyboardEvent('keyup');
       const whenOff = jest.fn();
 
-      onDomEvent.do(letInEvents(requiredSupply))(mockListener).whenOff(whenOff);
+      onDomEvent.do(supplyOn(requiredSupply))(mockListener).whenOff(whenOff);
       events.send(event1);
       requiredSupply.off('reason');
       events.send(event2);
