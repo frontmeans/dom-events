@@ -1,6 +1,6 @@
 import { firstEvent } from '@proc7ts/fun-events';
-import { captureDomEvents } from './actions';
 import { DomEventDispatcher } from './dom-event-dispatcher';
+import { captureDomEvents } from './processors';
 import Mock = jest.Mock;
 
 describe('DomEventDispatcher', () => {

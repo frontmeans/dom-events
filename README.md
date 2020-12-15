@@ -68,7 +68,7 @@ container.addEventListener('click', handleContainerClick, true);
 
 ### `handleDomEvents()`
 
-Creates a DOM event sender mapper function that enables or disables default DOM event handlers.
+Creates a DOM events processor that enables or disables default DOM event handlers.
 
 Corresponds to specifying `{ passive: true }` as a second argument to `EventTarget.addEventListener()` when
 `true` passed as parameter, or no parameters passes.
@@ -129,7 +129,7 @@ document.getElementById('my-div').addEventListener('click', event => {
 
 #### `stopDomEvents()`
 
-Creates an {@link OnDomEvent} sender preventing further propagation of events in the capturing and bubbling phases.
+Creates an `OnDomEvent` sender preventing further propagation of events in the capturing and bubbling phases.
 
 Causes listeners to invoke an [Event.stopPropagation()] method prior to event handing.
 

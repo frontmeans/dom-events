@@ -6,7 +6,7 @@ import { eventReceiver } from '@proc7ts/fun-events';
 import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
 
 /**
- * Creates a DOM event sender mapper function that enables or disables default DOM event handlers.
+ * Creates a DOM events processor that enables or disables default DOM event handlers.
  *
  * @typeParam TEvent - DOM event type.
  * @param enable - Whether to enable default handlers. `true` to enable (default value, corresponds to specifying
