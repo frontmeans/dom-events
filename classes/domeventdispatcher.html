@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for DOM Events">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -51,10 +52,10 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">DOM Events</a>
 				</li>
 				<li>
-					<a href="DomEventDispatcher.html">DomEventDispatcher</a>
+					<a href="domeventdispatcher.html">DomEventDispatcher</a>
 				</li>
 			</ul>
 			<h1>Class DomEventDispatcher</h1>
@@ -92,20 +93,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="DomEventDispatcher.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="domeventdispatcher.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="DomEventDispatcher.html#supply" class="tsd-kind-icon">supply</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="domeventdispatcher.html#_target" class="tsd-kind-icon">_target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="domeventdispatcher.html#supply" class="tsd-kind-icon">supply</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="DomEventDispatcher.html#dispatch" class="tsd-kind-icon">dispatch</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="DomEventDispatcher.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="domeventdispatcher.html#dispatch" class="tsd-kind-icon">dispatch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="domeventdispatcher.html#on" class="tsd-kind-icon">on</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,13 +119,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Dom<wbr>Event<wbr>Dispatcher<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventTarget</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DomEventDispatcher.html" class="tsd-signature-type">DomEventDispatcher</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dom<wbr>Event<wbr>Dispatcher<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventTarget</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="domeventdispatcher.html" class="tsd-signature-type" data-tsd-kind="Class">DomEventDispatcher</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/6d2da66/src/dom-event-dispatcher.ts#L27">frontmeans/dom-events/src/dom-event-dispatcher.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/09c89f0/src/dom-event-dispatcher.ts#L27">frontmeans/dom-events/src/dom-event-dispatcher.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -136,26 +138,40 @@
 								<li>
 									<h5>target: <span class="tsd-signature-type">EventTarget</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Event target to construct event dispatcher for.</p>
-										</div>
+										<p>Event target to construct event dispatcher for.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="DomEventDispatcher.html" class="tsd-signature-type">DomEventDispatcher</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="domeventdispatcher.html" class="tsd-signature-type" data-tsd-kind="Class">DomEventDispatcher</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_target" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> _target</h3>
+					<div class="tsd-signature tsd-kind-icon">_target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventTarget</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/09c89f0/src/dom-event-dispatcher.ts#L27">frontmeans/dom-events/src/dom-event-dispatcher.ts:27</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>internal</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="supply" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> supply</h3>
-					<div class="tsd-signature tsd-kind-icon">supply<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Supply</span><span class="tsd-signature-symbol"> = new Supply()</span></div>
+					<div class="tsd-signature tsd-kind-icon">supply<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Supply</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/6d2da66/src/dom-event-dispatcher.ts#L22">frontmeans/dom-events/src/dom-event-dispatcher.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/09c89f0/src/dom-event-dispatcher.ts#L22">frontmeans/dom-events/src/dom-event-dispatcher.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +188,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/6d2da66/src/dom-event-dispatcher.ts#L80">frontmeans/dom-events/src/dom-event-dispatcher.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/09c89f0/src/dom-event-dispatcher.ts#L80">frontmeans/dom-events/src/dom-event-dispatcher.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +208,7 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<p><code>true</code> if either event&#39;s <code>cancelable</code> attribute value is <code>false</code> or its <code>preventDefault()</code> method was not
-							invoked, or <code>false</code> otherwise. Also returns <code>false</code> when <a href="DomEventDispatcher.html#supply">supply</a> is cut off.</p>
+							invoked, or <code>false</code> otherwise. Also returns <code>false</code> when <a href="domeventdispatcher.html#supply">supply</a> is cut off.</p>
 						</li>
 					</ul>
 				</section>
@@ -200,13 +216,13 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">on&lt;TEvent&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/OnDomEvent.html" class="tsd-signature-type">OnDomEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TEvent</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">on&lt;TEvent&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ondomevent.html" class="tsd-signature-type" data-tsd-kind="Interface">OnDomEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TEvent</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/6d2da66/src/dom-event-dispatcher.ts#L52">frontmeans/dom-events/src/dom-event-dispatcher.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/frontmeans/dom-events/blob/09c89f0/src/dom-event-dispatcher.ts#L52">frontmeans/dom-events/src/dom-event-dispatcher.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -236,8 +252,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/OnDomEvent.html" class="tsd-signature-type">OnDomEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TEvent</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p><a href="../interfaces/OnDomEvent.html">OnDomEvent</a> sender of DOM events of the given <code>type</code>.</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ondomevent.html" class="tsd-signature-type" data-tsd-kind="Interface">OnDomEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TEvent</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><a href="../interfaces/ondomevent.html">OnDomEvent</a> sender of DOM events of the given <code>type</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -246,8 +262,8 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -256,44 +272,47 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="DomEventDispatcher.html" class="tsd-kind-icon">Dom<wbr>Event<wbr>Dispatcher</a>
+						<a href="domeventdispatcher.html" class="tsd-kind-icon">Dom<wbr>Event<wbr>Dispatcher</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="DomEventDispatcher.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="domeventdispatcher.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="domeventdispatcher.html#_target" class="tsd-kind-icon">_target</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="DomEventDispatcher.html#supply" class="tsd-kind-icon">supply</a>
+								<a href="domeventdispatcher.html#supply" class="tsd-kind-icon">supply</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="DomEventDispatcher.html#dispatch" class="tsd-kind-icon">dispatch</a>
+								<a href="domeventdispatcher.html#dispatch" class="tsd-kind-icon">dispatch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="DomEventDispatcher.html#on" class="tsd-kind-icon">on</a>
+								<a href="domeventdispatcher.html#on" class="tsd-kind-icon">on</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/OnDomEvent.html" class="tsd-kind-icon">On<wbr>Dom<wbr>Event</a>
+						<a href="../interfaces/ondomevent.html" class="tsd-kind-icon">On<wbr>Dom<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="../globals.html#DomEventListener" class="tsd-kind-icon">Dom<wbr>Event<wbr>Listener</a>
+						<a href="../modules.html#domeventlistener" class="tsd-kind-icon">Dom<wbr>Event<wbr>Listener</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="../globals.html#captureDomEvents" class="tsd-kind-icon">capture<wbr>Dom<wbr>Events</a>
+						<a href="../modules.html#capturedomevents" class="tsd-kind-icon">capture<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="../globals.html#handleDomEvents" class="tsd-kind-icon">handle<wbr>Dom<wbr>Events</a>
+						<a href="../modules.html#handledomevents" class="tsd-kind-icon">handle<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="../globals.html#interceptDomEvents" class="tsd-kind-icon">intercept<wbr>Dom<wbr>Events</a>
+						<a href="../modules.html#interceptdomevents" class="tsd-kind-icon">intercept<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="../globals.html#onDomEventBy" class="tsd-kind-icon">on<wbr>Dom<wbr>Event<wbr>By</a>
+						<a href="../modules.html#ondomeventby" class="tsd-kind-icon">on<wbr>Dom<wbr>Event<wbr>By</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="../globals.html#stopDomEvents" class="tsd-kind-icon">stop<wbr>Dom<wbr>Events</a>
+						<a href="../modules.html#stopdomevents" class="tsd-kind-icon">stop<wbr>Dom<wbr>Events</a>
 					</li>
 				</ul>
 			</nav>
@@ -308,6 +327,12 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 			</ul>
 		</div>
 	</div>

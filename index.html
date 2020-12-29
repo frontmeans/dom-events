@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for DOM Events">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -49,12 +50,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1>DOM Events</h1>
+			<h1>Project DOM Events</h1>
 		</div>
 	</div>
 </header>
@@ -78,12 +74,13 @@
 				<p><code>OnDomEvent</code> extends an <code>OnEvent</code> sender with DOM-specific functionality. It sends DOM <code>Events</code> to <code>DomEventListener</code>s</p>
 				<p><code>DomEventDispatcher</code> can be attached to arbitrary <code>EventTarget</code>. It constructs an <code>OnDomEvent</code> senders for each event
 				type and dispatches DOM events.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-button&#x27;</span>));
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dispatcher</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-button&#039;</span><span style="color: #000000">));</span>
 
-dispatcher.on(<span class="hljs-string">&#x27;click&#x27;</span>)(submit);
-dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class="hljs-string">&#x27;click&#x27;</span>));</code></pre>
+<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">)(</span><span style="color: #001080">submit</span><span style="color: #000000">);</span>
+<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">dispatch</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">MouseEvent</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">));</span>
+</code></pre>
 				<a href="#dom-specific-actions" id="dom-specific-actions" style="color: inherit; text-decoration: none;">
 					<h3>DOM-specific Actions</h3>
 				</a>
@@ -93,110 +90,115 @@ dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class
 				</a>
 				<p>Creates an <code>OnDomEvent</code> sender that enables event capturing by default.</p>
 				<p>This corresponds to specifying <code>true</code> or <code>{ capture: true }</code> as a second argument to <code>EventTarget.addEventListener()</code>.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { captureDomEvents, DomEventDispatcher } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">captureDomEvents</span><span style="color: #000000">, </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">const</span> container = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-container&#x27;</span>);
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">container</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-container&#039;</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// Clicking on the inner elements would be handled by container first.</span>
-<span class="hljs-keyword">new</span> DomEventDispatcher(container).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(captureDomEvents)(handleContainerClick);
+<span style="color: #008000">// Clicking on the inner elements would be handled by container first.</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">container</span><span style="color: #000000">).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">captureDomEvents</span><span style="color: #000000">)(</span><span style="color: #001080">handleContainerClick</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// The above is the same as</span>
-container.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, handleContainerClick, <span class="hljs-literal">true</span>);</code></pre>
+<span style="color: #008000">// The above is the same as</span>
+<span style="color: #001080">container</span><span style="color: #000000">.</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">handleContainerClick</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+</code></pre>
 				<a href="#handledomevents" id="handledomevents" style="color: inherit; text-decoration: none;">
 					<h3><code>handleDomEvents()</code></h3>
 				</a>
 				<p>Creates a DOM events processor that enables or disables default DOM event handlers.</p>
 				<p>Corresponds to specifying <code>{ passive: true }</code> as a second argument to <code>EventTarget.addEventListener()</code> when
 				<code>true</code> passed as parameter, or no parameters passes.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, handleDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">handleDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// Scrolling events won&#x27;t be prevented.</span>
-<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;scroll&#x27;</span>).do(handleDomEvents())(handleScroll);
+<span style="color: #008000">// Scrolling events won&#039;t be prevented.</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #001080">body</span><span style="color: #000000">).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;scroll&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #795E26">handleDomEvents</span><span style="color: #000000">())(</span><span style="color: #001080">handleScroll</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// The above is the same as</span>
-<span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">&#x27;scroll&#x27;</span>, handleScroll, { <span class="hljs-attr">passive</span>: <span class="hljs-literal">true</span> });</code></pre>
+<span style="color: #008000">// The above is the same as</span>
+<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #001080">body</span><span style="color: #000000">.</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;scroll&#039;</span><span style="color: #000000">, </span><span style="color: #001080">handleScroll</span><span style="color: #000000">, { </span><span style="color: #001080">passive:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> });</span>
+</code></pre>
 				<p>Causes listeners to invoke an <code>Event.preventDefault()</code> method prior to event handling when <code>false</code> passed as parameter.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, handleDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">handleDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// Clicking on the link won&#x27;t lead to navigation.</span>
-<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-href&#x27;</span>)).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(handleDomEvents(<span class="hljs-literal">false</span>))(doSomething);
+<span style="color: #008000">// Clicking on the link won&#039;t lead to navigation.</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-href&#039;</span><span style="color: #000000">)).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #795E26">handleDomEvents</span><span style="color: #000000">(</span><span style="color: #0000FF">false</span><span style="color: #000000">))(</span><span style="color: #001080">doSomething</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// The above is the same as</span>
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-href&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
-  event.preventDefault();
-  doSomething(event);
-});</code></pre>
+<span style="color: #008000">// The above is the same as</span>
+<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-href&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">preventDefault</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #795E26">doSomething</span><span style="color: #000000">(</span><span style="color: #001080">event</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
 				<a href="#interceptdomevents" id="interceptdomevents" style="color: inherit; text-decoration: none;">
 					<h4><code>interceptDomEvents()</code></h4>
 				</a>
 				<p>Creates an <code>OnDomEvent</code> sender preventing other listeners of the same event from being called.</p>
 				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation">Event.stopImmediatePropagation()</a> method prior to event handing.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, interceptDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">interceptDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>))
-<span class="hljs-keyword">const</span> onClick = dispatcher.on(<span class="hljs-string">&#x27;click&#x27;</span>);
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dispatcher</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">))</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">onClick</span><span style="color: #000000"> = </span><span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// The ascendants won&#x27;t receive a click the div.</span>
-onClick.do(interceptDomEvents)(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;1&#x27;</span>)); <span class="hljs-comment">// This is the last handler </span>
-onClick(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;2&#x27;</span>));                        <span class="hljs-comment">// This one won&#x27;t be called</span>
+<span style="color: #008000">// The ascendants won&#039;t receive a click the div.</span>
+<span style="color: #001080">onClick</span><span style="color: #000000">.</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">interceptDomEvents</span><span style="color: #000000">)(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;1&#039;</span><span style="color: #000000">)); </span><span style="color: #008000">// This is the last handler </span>
+<span style="color: #795E26">onClick</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;2&#039;</span><span style="color: #000000">));                        </span><span style="color: #008000">// This one won&#039;t be called</span>
 
-dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class="hljs-string">&#x27;click&#x27;</span>)); <span class="hljs-comment">// console: 1</span>
+<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">dispatch</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">MouseEvent</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">)); </span><span style="color: #008000">// console: 1</span>
 
-<span class="hljs-comment">// The first listener registration above is the same as</span>
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
-  event.stopImmediatePropagation();
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;1&#x27;</span>);
-});</code></pre>
+<span style="color: #008000">// The first listener registration above is the same as</span>
+<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">stopImmediatePropagation</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;1&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
 				<a href="#stopdomevents" id="stopdomevents" style="color: inherit; text-decoration: none;">
 					<h4><code>stopDomEvents()</code></h4>
 				</a>
 				<p>Creates an <code>OnDomEvent</code> sender preventing further propagation of events in the capturing and bubbling phases.</p>
 				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation">Event.stopPropagation()</a> method prior to event handing.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DomEventDispatcher, stopDomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@frontmeans/dom-events&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">stopDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// The ascendants won&#x27;t receive a click the div.</span>
-<span class="hljs-keyword">new</span> DomEventDispatcher(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>)).on(<span class="hljs-string">&#x27;click&#x27;</span>).do(stopDomEvents)(handleClick);
+<span style="color: #008000">// The ascendants won&#039;t receive a click the div.</span>
+<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">)).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">stopDomEvents</span><span style="color: #000000">)(</span><span style="color: #001080">handleClick</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// The above is the same as</span>
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;my-div&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
-  event.stopPropagation();
-  handleClick(event);
-});</code></pre>
+<span style="color: #008000">// The above is the same as</span>
+<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">stopPropagation</span><span style="color: #000000">();</span>
+<span style="color: #000000">  </span><span style="color: #795E26">handleClick</span><span style="color: #000000">(</span><span style="color: #001080">event</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/DomEventDispatcher.html" class="tsd-kind-icon">Dom<wbr>Event<wbr>Dispatcher</a>
+						<a href="classes/domeventdispatcher.html" class="tsd-kind-icon">Dom<wbr>Event<wbr>Dispatcher</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/OnDomEvent.html" class="tsd-kind-icon">On<wbr>Dom<wbr>Event</a>
+						<a href="interfaces/ondomevent.html" class="tsd-kind-icon">On<wbr>Dom<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#DomEventListener" class="tsd-kind-icon">Dom<wbr>Event<wbr>Listener</a>
+						<a href="modules.html#domeventlistener" class="tsd-kind-icon">Dom<wbr>Event<wbr>Listener</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#captureDomEvents" class="tsd-kind-icon">capture<wbr>Dom<wbr>Events</a>
+						<a href="modules.html#capturedomevents" class="tsd-kind-icon">capture<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#handleDomEvents" class="tsd-kind-icon">handle<wbr>Dom<wbr>Events</a>
+						<a href="modules.html#handledomevents" class="tsd-kind-icon">handle<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#interceptDomEvents" class="tsd-kind-icon">intercept<wbr>Dom<wbr>Events</a>
+						<a href="modules.html#interceptdomevents" class="tsd-kind-icon">intercept<wbr>Dom<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#onDomEventBy" class="tsd-kind-icon">on<wbr>Dom<wbr>Event<wbr>By</a>
+						<a href="modules.html#ondomeventby" class="tsd-kind-icon">on<wbr>Dom<wbr>Event<wbr>By</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#stopDomEvents" class="tsd-kind-icon">stop<wbr>Dom<wbr>Events</a>
+						<a href="modules.html#stopdomevents" class="tsd-kind-icon">stop<wbr>Dom<wbr>Events</a>
 					</li>
 				</ul>
 			</nav>
@@ -211,6 +213,12 @@ dispatcher.dispatch(<span class="hljs-keyword">new</span> MouseEvent(<span class
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 			</ul>
 		</div>
 	</div>
