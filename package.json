@@ -31,7 +31,7 @@
     "@proc7ts/primitives": "^1.6.1"
   },
   "devDependencies": {
-    "@proc7ts/fun-events": "^10.0.0",
+    "@proc7ts/fun-events": "^10.0.1",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@run-z/eslint-config": "^1.2.1",
