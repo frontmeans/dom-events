@@ -28,7 +28,7 @@
     "@proc7ts/fun-events": "10.0.0"
   },
   "dependencies": {
-    "@proc7ts/primitives": "^1.7.0"
+    "@proc7ts/primitives": "^1.8.0"
   },
   "devDependencies": {
     "@proc7ts/fun-events": "^10.1.1",
