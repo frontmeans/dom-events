@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module @frontmeans/dom-events
- */
 import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
 
 /**

@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module @frontmeans/dom-events
+ * @module Module @frontmeans/dom-events
  */
 export * from './dom-event-dispatcher';
 export * from './on-dom-event';

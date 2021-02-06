@@ -1,7 +1,3 @@
-/**
- * @packageDocumentation
- * @module @frontmeans/dom-events
- */
 import { eventReceiver, EventReceiver, OnEvent, OnEvent__symbol, onEventBy } from '@proc7ts/fun-events';
 import { noop, Supply } from '@proc7ts/primitives';
 
