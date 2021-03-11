@@ -1,5 +1,5 @@
 import { EventNotifier, EventReceiver, onceOn, supplyOn } from '@proc7ts/fun-events';
-import { neverSupply, Supply } from '@proc7ts/primitives';
+import { neverSupply, Supply } from '@proc7ts/supply';
 import { OnDomEvent, onDomEventBy } from './on-dom-event';
 import Mock = jest.Mock;
 import SpyInstance = jest.SpyInstance;

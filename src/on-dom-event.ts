@@ -1,5 +1,6 @@
 import { eventReceiver, EventReceiver, OnEvent, OnEvent__symbol, onEventBy } from '@proc7ts/fun-events';
-import { noop, Supply } from '@proc7ts/primitives';
+import { noop } from '@proc7ts/primitives';
+import type { Supply } from '@proc7ts/supply';
 
 /**
  * DOM event listener.

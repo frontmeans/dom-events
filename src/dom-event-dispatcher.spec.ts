@@ -1,4 +1,5 @@
 import { onceOn } from '@proc7ts/fun-events';
+import { noop } from '@proc7ts/primitives';
 import { DomEventDispatcher } from './dom-event-dispatcher';
 import { captureDomEvents } from './processors';
 import Mock = jest.Mock;
@@ -22,6 +23,7 @@ describe('DomEventDispatcher', () => {
 
   beforeEach(() => {
     dispatcher = new DomEventDispatcher(mockTarget);
+    dispatcher.supply.whenOff(noop);
   });
 
   let mockListener: Mock<(event: Event) => void>;
