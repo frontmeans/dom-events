@@ -1,12 +1,13 @@
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { onceOn } from '@proc7ts/fun-events';
 import { noop } from '@proc7ts/primitives';
+import type { Mock } from 'jest-mock';
 import { DomEventDispatcher } from './dom-event-dispatcher';
 import { captureDomEvents } from './processors';
-import Mock = jest.Mock;
 
 describe('DomEventDispatcher', () => {
 
-  let mockTarget: jest.Mocked<Pick<EventTarget, 'addEventListener' | 'removeEventListener' | 'dispatchEvent'>>;
+  let mockTarget: { [K in keyof EventTarget]: Mock<ReturnType<EventTarget[K]>, Parameters<EventTarget[K]>> };
   let registeredListener: EventListener;
 
   beforeEach(() => {

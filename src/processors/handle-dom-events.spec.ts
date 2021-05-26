@@ -1,13 +1,15 @@
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { EventNotifier, EventReceiver } from '@proc7ts/fun-events';
+import type { Mock } from 'jest-mock';
 import { OnDomEvent, onDomEventBy } from '../on-dom-event';
 import { captureDomEvents } from './capture-dom-events';
 import { handleDomEvents } from './handle-dom-events';
 
 describe('handleDomEvents', () => {
 
-  let mockRegister: jest.Mock<void, [EventReceiver.Generic<[Event]>, (AddEventListenerOptions | boolean)?]>;
+  let mockRegister: Mock<void, [EventReceiver.Generic<[Event]>, (AddEventListenerOptions | boolean)?]>;
   let onDomEvent: OnDomEvent<Event>;
-  let mockListener: jest.Mock<void, [Event]>;
+  let mockListener: Mock<void, [Event]>;
   let events: EventNotifier<[Event]>;
 
   beforeEach(() => {
