@@ -1,8 +1,8 @@
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { EventNotifier, EventReceiver, onceOn, supplyOn } from '@proc7ts/fun-events';
 import { neverSupply, Supply } from '@proc7ts/supply';
+import type { Mock, SpyInstance } from 'jest-mock';
 import { OnDomEvent, onDomEventBy } from './on-dom-event';
-import Mock = jest.Mock;
-import SpyInstance = jest.SpyInstance;
 
 describe('OnDomEvent', () => {
 
@@ -23,7 +23,7 @@ describe('OnDomEvent', () => {
   describe('onceOn', () => {
 
     let supply: Supply;
-    let offSpy: SpyInstance;
+    let offSpy: SpyInstance<Supply, [unknown?]>;
 
     beforeEach(() => {
       mockRegister = jest.fn(receiver => {
@@ -92,7 +92,7 @@ describe('OnDomEvent', () => {
   describe('supplyOn', () => {
 
     let supply: Supply;
-    let offSpy: Mock;
+    let offSpy: Mock<void, [unknown?]>;
     let requiredSupply: Supply;
 
     beforeEach(() => {
