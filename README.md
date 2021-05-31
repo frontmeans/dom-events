@@ -15,9 +15,9 @@ Extension of [@proc7ts/fun-events] for DOM event processing in reactive style.
 [build-status-img]: https://github.com/frontmeans/dom-events/workflows/Build/badge.svg
 [build-status-link]: https://github.com/frontmeans/dom-events/actions?query=workflow%3ABuild
 [quality-img]: https://app.codacy.com/project/badge/Grade/a9945bbfc7c248bb85ee65f4f7b3f337
-[quality-link]: https://www.codacy.com/gh/frontmeans/doqry/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/dom-events&utm_campaign=Badge_Grade
+[quality-link]: https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/dom-events&utm_campaign=Badge_Grade
 [coverage-img]: https://app.codacy.com/project/badge/Coverage/a9945bbfc7c248bb85ee65f4f7b3f337
-[coverage-link]: https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/doqry&utm_campaign=Badge_Coverage
+[coverage-link]: https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&utm_medium=referral&utm_content=frontmeans/dom-events&utm_campaign=Badge_Coverage
 [github-image]: https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational
 [github-url]: https://github.com/frontmeans/dom-events
 [api-docs-image]: https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational
