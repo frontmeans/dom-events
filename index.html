@@ -1,230 +1,63 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DOM Events</title>
-	<meta name="description" content="Documentation for DOM Events">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">DOM Events</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>DOM Events</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#functional-dom-events-processor" id="functional-dom-events-processor" style="color: inherit; text-decoration: none;">
-					<h1>Functional DOM Events Processor </h1>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@frontmeans/dom-events"><img src="https://img.shields.io/npm/v/@frontmeans/dom-events.svg?logo=npm" alt="NPM"></a>
-					<a href="https://github.com/frontmeans/dom-events/actions?query=workflow%3ABuild"><img src="https://github.com/frontmeans/dom-events/workflows/Build/badge.svg" alt="Build Status"></a>
-					<a href="https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/dom-events&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/a9945bbfc7c248bb85ee65f4f7b3f337" alt="Code Quality"></a>
-					<a href="https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/dom-events&amp;utm_campaign=Badge_Coverage"><img src="https://app.codacy.com/project/badge/Coverage/a9945bbfc7c248bb85ee65f4f7b3f337" alt="Coverage"></a>
-					<a href="https://github.com/frontmeans/dom-events"><img src="https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational" alt="GitHub Project"></a>
-				<a href="https://frontmeans.github.io/dom-events/index.html"><img src="https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational" alt="API Documentation"></a></p>
-				<p>Extension of <a href="https://www.npmjs.com/package/@proc7ts/fun-events">@proc7ts/fun-events</a> for DOM event processing in reactive style.</p>
-				<a href="#dom-events" id="dom-events" style="color: inherit; text-decoration: none;">
-					<h2>DOM Events</h2>
-				</a>
-				<p>DOM events are supported by <code>OnDomEvent</code> and <code>DomEventDispatcher</code>.</p>
-				<p><code>OnDomEvent</code> extends an <code>OnEvent</code> sender with DOM-specific functionality. It sends DOM <code>Events</code> to <code>DomEventListener</code>s</p>
-				<p><code>DomEventDispatcher</code> can be attached to arbitrary <code>EventTarget</code>. It constructs an <code>OnDomEvent</code> senders for each event
-				type and dispatches DOM events.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>DOM Events</title><meta name="description" content="Documentation for DOM Events"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">DOM Events</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>DOM Events</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#functional-dom-events-processor" id="functional-dom-events-processor" style="color: inherit; text-decoration: none;">
+  <h1>Functional DOM Events Processor </h1>
+</a>
+<p><a href="https://www.npmjs.com/package/@frontmeans/dom-events"><img src="https://img.shields.io/npm/v/@frontmeans/dom-events.svg?logo=npm" alt="NPM"></a>
+<a href="https://github.com/frontmeans/dom-events/actions?query=workflow%3ABuild"><img src="https://github.com/frontmeans/dom-events/workflows/Build/badge.svg" alt="Build Status"></a>
+<a href="https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/dom-events&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/a9945bbfc7c248bb85ee65f4f7b3f337" alt="Code Quality"></a>
+<a href="https://www.codacy.com/gh/frontmeans/dom-events/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=frontmeans/dom-events&amp;utm_campaign=Badge_Coverage"><img src="https://app.codacy.com/project/badge/Coverage/a9945bbfc7c248bb85ee65f4f7b3f337" alt="Coverage"></a>
+<a href="https://github.com/frontmeans/dom-events"><img src="https://img.shields.io/static/v1?logo=github&label=GitHub&message=project&color=informational" alt="GitHub Project"></a>
+<a href="https://frontmeans.github.io/dom-events/index.html"><img src="https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational" alt="API Documentation"></a></p>
+<p>Extension of <a href="https://www.npmjs.com/package/@proc7ts/fun-events">@proc7ts/fun-events</a> for DOM event processing in reactive style.</p>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dispatcher</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-button&#039;</span><span style="color: #000000">));</span>
-
-<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">)(</span><span style="color: #001080">submit</span><span style="color: #000000">);</span>
-<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">dispatch</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MouseEvent</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">));</span>
+<a href="#dom-events" id="dom-events" style="color: inherit; text-decoration: none;">
+  <h2>DOM Events</h2>
+</a>
+<p>DOM events are supported by <code>OnDomEvent</code> and <code>DomEventDispatcher</code>.</p>
+<p><code>OnDomEvent</code> extends an <code>OnEvent</code> sender with DOM-specific functionality. It sends DOM <code>Events</code> to <code>DomEventListener</code>s</p>
+<p><code>DomEventDispatcher</code> can be attached to arbitrary <code>EventTarget</code>. It constructs an <code>OnDomEvent</code> senders for each event
+type and dispatches DOM events.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">dispatcher</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-button&#39;</span><span class="hl-1">));</span><br/><br/><span class="hl-2">dispatcher</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">)(</span><span class="hl-2">submit</span><span class="hl-1">);</span><br/><span class="hl-2">dispatcher</span><span class="hl-1">.</span><span class="hl-6">dispatch</span><span class="hl-1">(</span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">MouseEvent</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">));</span>
 </code></pre>
-				<a href="#dom-specific-actions" id="dom-specific-actions" style="color: inherit; text-decoration: none;">
-					<h3>DOM-specific Actions</h3>
-				</a>
-				<p>Along with basic API this library provides DOM-specific actions.</p>
-				<a href="#capturedomevents" id="capturedomevents" style="color: inherit; text-decoration: none;">
-					<h4><code>captureDomEvents()</code></h4>
-				</a>
-				<p>Creates an <code>OnDomEvent</code> sender that enables event capturing by default.</p>
-				<p>This corresponds to specifying <code>true</code> or <code>{ capture: true }</code> as a second argument to <code>EventTarget.addEventListener()</code>.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">captureDomEvents</span><span style="color: #000000">, </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">container</span><span style="color: #000000"> = </span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-container&#039;</span><span style="color: #000000">);</span>
+<a href="#dom-specific-actions" id="dom-specific-actions" style="color: inherit; text-decoration: none;">
+  <h3>DOM-specific Actions</h3>
+</a>
+<p>Along with basic API this library provides DOM-specific actions.</p>
 
-<span style="color: #008000">// Clicking on the inner elements would be handled by container first.</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">container</span><span style="color: #000000">).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">captureDomEvents</span><span style="color: #000000">)(</span><span style="color: #001080">handleContainerClick</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// The above is the same as</span>
-<span style="color: #001080">container</span><span style="color: #000000">.</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">handleContainerClick</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+<a href="#capturedomevents" id="capturedomevents" style="color: inherit; text-decoration: none;">
+  <h4><code>captureDomEvents()</code></h4>
+</a>
+<p>Creates an <code>OnDomEvent</code> sender that enables event capturing by default.</p>
+<p>This corresponds to specifying <code>true</code> or <code>{ capture: true }</code> as a second argument to <code>EventTarget.addEventListener()</code>.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">captureDomEvents</span><span class="hl-1">, </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">container</span><span class="hl-1"> = </span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-container&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// Clicking on the inner elements would be handled by container first.</span><br/><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">container</span><span class="hl-1">).</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">).</span><span class="hl-6">do</span><span class="hl-1">(</span><span class="hl-2">captureDomEvents</span><span class="hl-1">)(</span><span class="hl-2">handleContainerClick</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// The above is the same as</span><br/><span class="hl-2">container</span><span class="hl-1">.</span><span class="hl-6">addEventListener</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">, </span><span class="hl-2">handleContainerClick</span><span class="hl-1">, </span><span class="hl-4">true</span><span class="hl-1">);</span>
 </code></pre>
-				<a href="#handledomevents" id="handledomevents" style="color: inherit; text-decoration: none;">
-					<h3><code>handleDomEvents()</code></h3>
-				</a>
-				<p>Creates a DOM events processor that enables or disables default DOM event handlers.</p>
-				<p>Corresponds to specifying <code>{ passive: true }</code> as a second argument to <code>EventTarget.addEventListener()</code> when
-				<code>true</code> passed as parameter, or no parameters passes.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">handleDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #008000">// Scrolling events won&#039;t be prevented.</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #001080">body</span><span style="color: #000000">).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;scroll&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #795E26">handleDomEvents</span><span style="color: #000000">())(</span><span style="color: #001080">handleScroll</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// The above is the same as</span>
-<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #001080">body</span><span style="color: #000000">.</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;scroll&#039;</span><span style="color: #000000">, </span><span style="color: #001080">handleScroll</span><span style="color: #000000">, { </span><span style="color: #001080">passive:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> });</span>
+<a href="#handledomevents" id="handledomevents" style="color: inherit; text-decoration: none;">
+  <h3><code>handleDomEvents()</code></h3>
+</a>
+<p>Creates a DOM events processor that enables or disables default DOM event handlers.</p>
+<p>Corresponds to specifying <code>{ passive: true }</code> as a second argument to <code>EventTarget.addEventListener()</code> when
+<code>true</code> passed as parameter, or no parameters passes.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1">, </span><span class="hl-2">handleDomEvents</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-7">// Scrolling events won&#39;t be prevented.</span><br/><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-2">body</span><span class="hl-1">).</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;scroll&#39;</span><span class="hl-1">).</span><span class="hl-6">do</span><span class="hl-1">(</span><span class="hl-6">handleDomEvents</span><span class="hl-1">())(</span><span class="hl-2">handleScroll</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// The above is the same as</span><br/><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-2">body</span><span class="hl-1">.</span><span class="hl-6">addEventListener</span><span class="hl-1">(</span><span class="hl-3">&#39;scroll&#39;</span><span class="hl-1">, </span><span class="hl-2">handleScroll</span><span class="hl-1">, { </span><span class="hl-2">passive:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1"> });</span>
 </code></pre>
-				<p>Causes listeners to invoke an <code>Event.preventDefault()</code> method prior to event handling when <code>false</code> passed as parameter.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">handleDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
-
-<span style="color: #008000">// Clicking on the link won&#039;t lead to navigation.</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-href&#039;</span><span style="color: #000000">)).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #795E26">handleDomEvents</span><span style="color: #000000">(</span><span style="color: #0000FF">false</span><span style="color: #000000">))(</span><span style="color: #001080">doSomething</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// The above is the same as</span>
-<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-href&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">preventDefault</span><span style="color: #000000">();</span>
-<span style="color: #000000">  </span><span style="color: #795E26">doSomething</span><span style="color: #000000">(</span><span style="color: #001080">event</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+<p>Causes listeners to invoke an <code>Event.preventDefault()</code> method prior to event handling when <code>false</code> passed as parameter.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1">, </span><span class="hl-2">handleDomEvents</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-7">// Clicking on the link won&#39;t lead to navigation.</span><br/><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-href&#39;</span><span class="hl-1">)).</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">).</span><span class="hl-6">do</span><span class="hl-1">(</span><span class="hl-6">handleDomEvents</span><span class="hl-1">(</span><span class="hl-4">false</span><span class="hl-1">))(</span><span class="hl-2">doSomething</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// The above is the same as</span><br/><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-href&#39;</span><span class="hl-1">).</span><span class="hl-6">addEventListener</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">, </span><span class="hl-2">event</span><span class="hl-1"> </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">event</span><span class="hl-1">.</span><span class="hl-6">preventDefault</span><span class="hl-1">();</span><br/><span class="hl-1">  </span><span class="hl-6">doSomething</span><span class="hl-1">(</span><span class="hl-2">event</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#interceptdomevents" id="interceptdomevents" style="color: inherit; text-decoration: none;">
-					<h4><code>interceptDomEvents()</code></h4>
-				</a>
-				<p>Creates an <code>OnDomEvent</code> sender preventing other listeners of the same event from being called.</p>
-				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation">Event.stopImmediatePropagation()</a> method prior to event handing.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">interceptDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dispatcher</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">))</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">onClick</span><span style="color: #000000"> = </span><span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// The ascendants won&#039;t receive a click the div.</span>
-<span style="color: #001080">onClick</span><span style="color: #000000">.</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">interceptDomEvents</span><span style="color: #000000">)(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;1&#039;</span><span style="color: #000000">)); </span><span style="color: #008000">// This is the last handler </span>
-<span style="color: #795E26">onClick</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;2&#039;</span><span style="color: #000000">));                        </span><span style="color: #008000">// This one won&#039;t be called</span>
-
-<span style="color: #001080">dispatcher</span><span style="color: #000000">.</span><span style="color: #795E26">dispatch</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MouseEvent</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">)); </span><span style="color: #008000">// console: 1</span>
-
-<span style="color: #008000">// The first listener registration above is the same as</span>
-<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">stopImmediatePropagation</span><span style="color: #000000">();</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;1&#039;</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+<a href="#interceptdomevents" id="interceptdomevents" style="color: inherit; text-decoration: none;">
+  <h4><code>interceptDomEvents()</code></h4>
+</a>
+<p>Creates an <code>OnDomEvent</code> sender preventing other listeners of the same event from being called.</p>
+<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation">Event.stopImmediatePropagation()</a> method prior to event handing.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1">, </span><span class="hl-2">interceptDomEvents</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">dispatcher</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-div&#39;</span><span class="hl-1">))</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">onClick</span><span class="hl-1"> = </span><span class="hl-2">dispatcher</span><span class="hl-1">.</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// The ascendants won&#39;t receive a click the div.</span><br/><span class="hl-2">onClick</span><span class="hl-1">.</span><span class="hl-6">do</span><span class="hl-1">(</span><span class="hl-2">interceptDomEvents</span><span class="hl-1">)(() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-3">&#39;1&#39;</span><span class="hl-1">)); </span><span class="hl-7">// This is the last handler </span><br/><span class="hl-6">onClick</span><span class="hl-1">(() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-3">&#39;2&#39;</span><span class="hl-1">));                        </span><span class="hl-7">// This one won&#39;t be called</span><br/><br/><span class="hl-2">dispatcher</span><span class="hl-1">.</span><span class="hl-6">dispatch</span><span class="hl-1">(</span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">MouseEvent</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">)); </span><span class="hl-7">// console: 1</span><br/><br/><span class="hl-7">// The first listener registration above is the same as</span><br/><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-div&#39;</span><span class="hl-1">).</span><span class="hl-6">addEventListener</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">, </span><span class="hl-2">event</span><span class="hl-1"> </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">event</span><span class="hl-1">.</span><span class="hl-6">stopImmediatePropagation</span><span class="hl-1">();</span><br/><span class="hl-1">  </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-6">log</span><span class="hl-1">(</span><span class="hl-3">&#39;1&#39;</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<a href="#stopdomevents" id="stopdomevents" style="color: inherit; text-decoration: none;">
-					<h4><code>stopDomEvents()</code></h4>
-				</a>
-				<p>Creates an <code>OnDomEvent</code> sender preventing further propagation of events in the capturing and bubbling phases.</p>
-				<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation">Event.stopPropagation()</a> method prior to event handing.</p>
-				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">DomEventDispatcher</span><span style="color: #000000">, </span><span style="color: #001080">stopDomEvents</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@frontmeans/dom-events&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #008000">// The ascendants won&#039;t receive a click the div.</span>
-<span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DomEventDispatcher</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">)).</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">do</span><span style="color: #000000">(</span><span style="color: #001080">stopDomEvents</span><span style="color: #000000">)(</span><span style="color: #001080">handleClick</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// The above is the same as</span>
-<span style="color: #001080">document</span><span style="color: #000000">.</span><span style="color: #795E26">getElementById</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;my-div&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">addEventListener</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">, </span><span style="color: #001080">event</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #795E26">stopPropagation</span><span style="color: #000000">();</span>
-<span style="color: #000000">  </span><span style="color: #795E26">handleClick</span><span style="color: #000000">(</span><span style="color: #001080">event</span><span style="color: #000000">);</span>
-<span style="color: #000000">});</span>
+<a href="#stopdomevents" id="stopdomevents" style="color: inherit; text-decoration: none;">
+  <h4><code>stopDomEvents()</code></h4>
+</a>
+<p>Creates an <code>OnDomEvent</code> sender preventing further propagation of events in the capturing and bubbling phases.</p>
+<p>Causes listeners to invoke an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation">Event.stopPropagation()</a> method prior to event handing.</p>
+<pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">DomEventDispatcher</span><span class="hl-1">, </span><span class="hl-2">stopDomEvents</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@frontmeans/dom-events&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-7">// The ascendants won&#39;t receive a click the div.</span><br/><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-6">DomEventDispatcher</span><span class="hl-1">(</span><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-div&#39;</span><span class="hl-1">)).</span><span class="hl-6">on</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">).</span><span class="hl-6">do</span><span class="hl-1">(</span><span class="hl-2">stopDomEvents</span><span class="hl-1">)(</span><span class="hl-2">handleClick</span><span class="hl-1">);</span><br/><br/><span class="hl-7">// The above is the same as</span><br/><span class="hl-2">document</span><span class="hl-1">.</span><span class="hl-6">getElementById</span><span class="hl-1">(</span><span class="hl-3">&#39;my-div&#39;</span><span class="hl-1">).</span><span class="hl-6">addEventListener</span><span class="hl-1">(</span><span class="hl-3">&#39;click&#39;</span><span class="hl-1">, </span><span class="hl-2">event</span><span class="hl-1"> </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">event</span><span class="hl-1">.</span><span class="hl-6">stopPropagation</span><span class="hl-1">();</span><br/><span class="hl-1">  </span><span class="hl-6">handleClick</span><span class="hl-1">(</span><span class="hl-2">event</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
 </code></pre>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Exports</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="classes/domeventdispatcher.html" class="tsd-kind-icon">Dom<wbr>Event<wbr>Dispatcher</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/ondomevent.html" class="tsd-kind-icon">On<wbr>Dom<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="modules.html#domeventlistener" class="tsd-kind-icon">Dom<wbr>Event<wbr>Listener</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="modules.html#capturedomevents" class="tsd-kind-icon">capture<wbr>Dom<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="modules.html#handledomevents" class="tsd-kind-icon">handle<wbr>Dom<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="modules.html#interceptdomevents" class="tsd-kind-icon">intercept<wbr>Dom<wbr>Events</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="modules.html#ondomeventby" class="tsd-kind-icon">on<wbr>Dom<wbr>Event<wbr>By</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="modules.html#stopdomevents" class="tsd-kind-icon">stop<wbr>Dom<wbr>Events</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/DomEventDispatcher.html" class="tsd-kind-icon">Dom<wbr/>Event<wbr/>Dispatcher</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/OnDomEvent.html" class="tsd-kind-icon">On<wbr/>Dom<wbr/>Event</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#DomEventListener" class="tsd-kind-icon">Dom<wbr/>Event<wbr/>Listener</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#captureDomEvents" class="tsd-kind-icon">capture<wbr/>Dom<wbr/>Events</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#handleDomEvents" class="tsd-kind-icon">handle<wbr/>Dom<wbr/>Events</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#interceptDomEvents" class="tsd-kind-icon">intercept<wbr/>Dom<wbr/>Events</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#onDomEventBy" class="tsd-kind-icon">on<wbr/>Dom<wbr/>Event<wbr/>By</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#stopDomEvents" class="tsd-kind-icon">stop<wbr/>Dom<wbr/>Events</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
