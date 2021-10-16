@@ -7,7 +7,7 @@ import { OnDomEvent, onDomEventBy } from './on-dom-event';
  * @internal
  * @hidden
  */
-const OnDomEvent$context: EventReceiver.Context<any> = {
+const OnDomEvent$context: EventReceiver.Context<any[]> = {
   onRecurrent: noop,
 };
 
