@@ -32,7 +32,7 @@ describe('stopDomEvents', () => {
 
     events.send(event);
 
-    expect(stopPropagationSpy).toHaveBeenCalledWith();
+    expect(stopPropagationSpy).toHaveBeenCalledWith(...([] as unknown[] as [unknown, unknown[]]));
     expect(mockListener).toHaveBeenCalledWith(event);
   });
 });

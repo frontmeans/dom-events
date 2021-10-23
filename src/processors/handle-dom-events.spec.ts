@@ -74,7 +74,7 @@ describe('handleDomEvents', () => {
 
       events.send(event);
 
-      expect(preventDefaultSpy).toHaveBeenCalledWith();
+      expect(preventDefaultSpy).toHaveBeenCalledWith(...([] as unknown[] as [unknown, unknown[]]));
       expect(mockListener).toHaveBeenCalledWith(event);
     });
   });
