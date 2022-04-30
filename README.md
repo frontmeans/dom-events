@@ -1,5 +1,4 @@
-Functional DOM Events Processor 
-===============================
+# Functional DOM Events Processor
 
 [![NPM][npm-image]][npm-url]
 [![Build Status][build-status-img]][build-status-link]
@@ -22,12 +21,9 @@ Extension of [@proc7ts/fun-events] for DOM event processing in reactive style.
 [github-url]: https://github.com/frontmeans/dom-events
 [api-docs-image]: https://img.shields.io/static/v1?logo=typescript&label=API&message=docs&color=informational
 [api-docs-url]: https://frontmeans.github.io/dom-events/index.html
-
 [@proc7ts/fun-events]: https://www.npmjs.com/package/@proc7ts/fun-events
 
-
-DOM Events
-----------
+## DOM Events
 
 DOM events are supported by `OnDomEvent` and `DomEventDispatcher`.
 
@@ -49,7 +45,6 @@ dispatcher.dispatch(new MouseEvent('click'));
 
 Along with basic API this library provides DOM-specific actions.
 
-
 #### `captureDomEvents()`
 
 Creates an `OnDomEvent` sender that enables event capturing by default.
@@ -67,7 +62,6 @@ new DomEventDispatcher(container).on('click').do(captureDomEvents)(handleContain
 // The above is the same as
 container.addEventListener('click', handleContainerClick, true);
 ```
-
 
 ### `handleDomEvents()`
 
@@ -101,7 +95,6 @@ document.getElementById('my-href').addEventListener('click', event => {
 });
 ```
 
-
 #### `interceptDomEvents()`
 
 Creates an `OnDomEvent` sender preventing other listeners of the same event from being called.
@@ -111,12 +104,12 @@ Causes listeners to invoke an [Event.stopImmediatePropagation()] method prior to
 ```typescript
 import { DomEventDispatcher, interceptDomEvents } from '@frontmeans/dom-events';
 
-const dispatcher = new DomEventDispatcher(document.getElementById('my-div'))
+const dispatcher = new DomEventDispatcher(document.getElementById('my-div'));
 const onClick = dispatcher.on('click');
 
 // The ascendants won't receive a click the div.
-onClick.do(interceptDomEvents)(() => console.log('1')); // This is the last handler 
-onClick(() => console.log('2'));                        // This one won't be called
+onClick.do(interceptDomEvents)(() => console.log('1')); // This is the last handler
+onClick(() => console.log('2')); // This one won't be called
 
 dispatcher.dispatch(new MouseEvent('click')); // console: 1
 
@@ -127,8 +120,7 @@ document.getElementById('my-div').addEventListener('click', event => {
 });
 ```
 
-[Event.stopImmediatePropagation()]: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation
-
+[event.stopimmediatepropagation()]: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation
 
 #### `stopDomEvents()`
 
@@ -149,4 +141,4 @@ document.getElementById('my-div').addEventListener('click', event => {
 });
 ```
 
-[Event.stopPropagation()]: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
+[event.stoppropagation()]: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
