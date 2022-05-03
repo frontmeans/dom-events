@@ -7,7 +7,7 @@ import { captureDomEvents } from './processors';
 
 describe('DomEventDispatcher', () => {
 
-  let mockTarget: { [K in keyof EventTarget]: Mock<ReturnType<EventTarget[K]>, Parameters<EventTarget[K]>> };
+  let mockTarget: { [K in keyof EventTarget]: Mock<EventTarget[K]> };
   let registeredListener: EventListener;
 
   beforeEach(() => {

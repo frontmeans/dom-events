@@ -6,9 +6,12 @@ import { captureDomEvents } from './capture-dom-events';
 
 describe('captureDomEvents', () => {
 
-  let mockRegister: Mock<void, [EventReceiver.Generic<[Event]>, (AddEventListenerOptions | boolean)?]>;
+  let mockRegister: Mock<(
+      receiver: EventReceiver.Generic<[Event]>,
+      options?: AddEventListenerOptions | boolean,
+  ) => void>;
   let onDomEvent: OnDomEvent<Event>;
-  let mockListener: Mock<void, [Event]>;
+  let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
 
   beforeEach(() => {
