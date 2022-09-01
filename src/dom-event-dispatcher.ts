@@ -48,13 +48,11 @@ export class DomEventDispatcher implements SupplyPeer {
    */
   on<TEvent extends Event>(type: string): OnDomEvent<TEvent> {
     return onDomEventBy<TEvent>((listener, opts) => {
-
       const { supply } = listener;
 
       supply.needs(this);
 
       if (!supply.isOff) {
-
         // Create unique DOM listener instance
         const domListener: EventListener = event => listener.receive(OnDomEvent$context, event as TEvent);
 

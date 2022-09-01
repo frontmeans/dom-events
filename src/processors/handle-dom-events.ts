@@ -12,7 +12,7 @@ import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
  * @returns {@link OnDomEvent} mapper function.
  */
 export function handleDomEvents<TEvent extends Event>(
-    enable = true,
+  enable = true,
 ): (this: void, supplier: OnDomEvent<TEvent>) => OnDomEvent<TEvent> {
   return enable ? listenDomEventsPassively : preventDefaultDomEventHandler;
 }
@@ -21,38 +21,38 @@ export function handleDomEvents<TEvent extends Event>(
  * @internal
  * @hidden
  */
-function listenDomEventsPassively<TEvent extends Event>(supplier: OnDomEvent<TEvent>): OnDomEvent<TEvent> {
-  return onDomEventBy((
-      listener: DomEventListener<TEvent>,
-      opts?: AddEventListenerOptions | boolean,
-  ) => {
-    if (opts == null) {
-      return supplier(listener, { passive: true });
-    }
-    if (typeof opts === 'boolean') {
-      return supplier(listener, { capture: opts, passive: true });
-    }
-    if (opts.passive == null) {
-      return supplier(listener, { ...opts, passive: true });
-    }
+function listenDomEventsPassively<TEvent extends Event>(
+  supplier: OnDomEvent<TEvent>,
+): OnDomEvent<TEvent> {
+  return onDomEventBy(
+    (listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean) => {
+      if (opts == null) {
+        return supplier(listener, { passive: true });
+      }
+      if (typeof opts === 'boolean') {
+        return supplier(listener, { capture: opts, passive: true });
+      }
+      if (opts.passive == null) {
+        return supplier(listener, { ...opts, passive: true });
+      }
 
-    return supplier(listener, opts);
-  });
+      return supplier(listener, opts);
+    },
+  );
 }
 
 /**
  * @internal
  * @hidden
  */
-function preventDefaultDomEventHandler<TEvent extends Event>(supplier: OnDomEvent<TEvent>): OnDomEvent<TEvent> {
-  return onDomEventBy((
-      listener: DomEventListener<TEvent>,
-      opts?: AddEventListenerOptions | boolean,
-  ) => {
+function preventDefaultDomEventHandler<TEvent extends Event>(
+  supplier: OnDomEvent<TEvent>,
+): OnDomEvent<TEvent> {
+  return onDomEventBy(
+    (listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean) => {
+      const receiver = eventReceiver(listener);
 
-    const receiver = eventReceiver(listener);
-
-    return supplier(
+      return supplier(
         {
           supply: receiver.supply,
           receive(context, event) {
@@ -61,6 +61,7 @@ function preventDefaultDomEventHandler<TEvent extends Event>(supplier: OnDomEven
           },
         },
         opts,
-    );
-  });
+      );
+    },
+  );
 }

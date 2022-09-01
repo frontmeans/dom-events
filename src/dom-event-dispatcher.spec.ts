@@ -6,7 +6,6 @@ import { DomEventDispatcher } from './dom-event-dispatcher';
 import { captureDomEvents } from './processors';
 
 describe('DomEventDispatcher', () => {
-
   let mockTarget: { [K in keyof EventTarget]: Mock<EventTarget[K]> };
   let registeredListener: EventListener;
 
@@ -36,14 +35,17 @@ describe('DomEventDispatcher', () => {
   describe('on', () => {
     it('registers listener', () => {
       dispatcher.on('click')(mockListener);
-      expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, undefined);
+      expect(mockTarget.addEventListener).toHaveBeenCalledWith(
+        'click',
+        registeredListener,
+        undefined,
+      );
     });
     it('registers capturing listener', () => {
       dispatcher.on('click').do(captureDomEvents)(mockListener);
       expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, true);
     });
     it('unregisters listener', () => {
-
       const supply = dispatcher.on('click').do(captureDomEvents)(mockListener);
 
       supply.off();
@@ -54,14 +56,17 @@ describe('DomEventDispatcher', () => {
     describe('onceOn', () => {
       it('registers listener', () => {
         dispatcher.on('click').do(onceOn)(mockListener);
-        expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, undefined);
+        expect(mockTarget.addEventListener).toHaveBeenCalledWith(
+          'click',
+          registeredListener,
+          undefined,
+        );
       });
       it('registers capturing listener', () => {
         dispatcher.on('click').do(captureDomEvents, onceOn)(mockListener);
         expect(mockTarget.addEventListener).toHaveBeenCalledWith('click', registeredListener, true);
       });
       it('unregisters listener', () => {
-
         const supply = dispatcher.on('click').do(captureDomEvents, onceOn)(mockListener);
 
         supply.off();
@@ -69,7 +74,6 @@ describe('DomEventDispatcher', () => {
         expect(mockTarget.removeEventListener).toHaveBeenCalledWith('click', registeredListener);
       });
       it('unregisters listener after receiving event', () => {
-
         const supply = dispatcher.on('click').do(captureDomEvents, onceOn)(mockListener);
 
         registeredListener(new KeyboardEvent('click'));
@@ -101,7 +105,6 @@ describe('DomEventDispatcher', () => {
 
   describe('done', () => {
     it('unregisters event listener', () => {
-
       const supply = dispatcher.on('click')(mockListener);
       const reason = 'test reason';
 
@@ -114,7 +117,6 @@ describe('DomEventDispatcher', () => {
       expect(whenOff).toHaveBeenCalledWith(reason);
     });
     it('rejects new listeners', () => {
-
       const reason = 'test reason';
 
       dispatcher.supply.off(reason);

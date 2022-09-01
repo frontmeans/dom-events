@@ -12,19 +12,18 @@ import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
  * @returns DOM events sender.
  */
 export function captureDomEvents<TEvent extends Event>(
-    supplier: OnDomEvent<TEvent>,
+  supplier: OnDomEvent<TEvent>,
 ): OnDomEvent<TEvent> {
-  return onDomEventBy((
-      listener: DomEventListener<TEvent>,
-      opts?: AddEventListenerOptions | boolean,
-  ) => {
-    if (opts == null) {
-      return supplier(listener, true);
-    }
-    if (typeof opts === 'object' && opts.capture == null) {
-      return supplier(listener, { ...opts, capture: true });
-    }
+  return onDomEventBy(
+    (listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean) => {
+      if (opts == null) {
+        return supplier(listener, true);
+      }
+      if (typeof opts === 'object' && opts.capture == null) {
+        return supplier(listener, { ...opts, capture: true });
+      }
 
-    return supplier(listener, opts);
-  });
+      return supplier(listener, opts);
+    },
+  );
 }

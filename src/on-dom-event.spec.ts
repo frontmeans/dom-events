@@ -5,11 +5,9 @@ import type { Mock, SpyInstance } from 'jest-mock';
 import { OnDomEvent, onDomEventBy } from './on-dom-event';
 
 describe('OnDomEvent', () => {
-
-  let mockRegister: Mock<(
-      receiver: EventReceiver.Generic<[Event]>,
-      options?: AddEventListenerOptions | boolean,
-  ) => void>;
+  let mockRegister: Mock<
+    (receiver: EventReceiver.Generic<[Event]>, options?: AddEventListenerOptions | boolean) => void
+  >;
   let onDomEvent: OnDomEvent<Event>;
   let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
@@ -24,7 +22,6 @@ describe('OnDomEvent', () => {
   });
 
   describe('onceOn', () => {
-
     let supply: Supply;
     let offSpy: SpyInstance<(reason?: unknown) => Supply>;
 
@@ -51,7 +48,6 @@ describe('OnDomEvent', () => {
       expect(offSpy).toHaveBeenCalled();
     });
     it('unregisters immediately notified event receiver', () => {
-
       const event = new KeyboardEvent('click');
 
       mockRegister.mockImplementation(receiver => {
@@ -67,7 +63,6 @@ describe('OnDomEvent', () => {
       expect(mockListener).toHaveBeenCalledWith(event);
     });
     it('never sends events if their supply is initially cut off', () => {
-
       const event = new KeyboardEvent('click');
 
       supply = neverSupply();
@@ -93,7 +88,6 @@ describe('OnDomEvent', () => {
   });
 
   describe('supplyOn', () => {
-
     let supply: Supply;
     let offSpy: Mock<(reason?: unknown) => void>;
     let requiredSupply: Supply;
@@ -102,13 +96,12 @@ describe('OnDomEvent', () => {
       mockRegister = jest.fn(receiver => {
         events.on(receiver);
         supply = receiver.supply;
-        supply.whenOff(offSpy = jest.fn());
+        supply.whenOff((offSpy = jest.fn()));
       });
       requiredSupply = new Supply();
     });
 
     it('sends original events', () => {
-
       const event1 = new KeyboardEvent('keydown');
       const event2 = new KeyboardEvent('keyup');
 
@@ -120,7 +113,6 @@ describe('OnDomEvent', () => {
       expect(mockListener).toHaveBeenLastCalledWith(event2);
     });
     it('does not send any events if required supply is initially cut off', () => {
-
       const event = new KeyboardEvent('click');
       const whenOff = jest.fn();
 
@@ -130,7 +122,6 @@ describe('OnDomEvent', () => {
       expect(whenOff).toHaveBeenCalled();
     });
     it('no longer sends events after original supply is cut off', () => {
-
       const event1 = new KeyboardEvent('keydown');
       const event2 = new KeyboardEvent('keyup');
       const whenOff = jest.fn();
@@ -146,7 +137,6 @@ describe('OnDomEvent', () => {
       expect(offSpy).toHaveBeenCalledWith('reason');
     });
     it('no longer sends events after required supply is cut off', () => {
-
       const event1 = new KeyboardEvent('keydown');
       const event2 = new KeyboardEvent('keyup');
       const whenOff = jest.fn();
@@ -162,5 +152,4 @@ describe('OnDomEvent', () => {
       expect(offSpy).toHaveBeenCalledWith('reason');
     });
   });
-
 });

@@ -6,11 +6,9 @@ import { captureDomEvents } from './capture-dom-events';
 import { handleDomEvents } from './handle-dom-events';
 
 describe('handleDomEvents', () => {
-
-  let mockRegister: Mock<(
-      receiver: EventReceiver.Generic<[Event]>,
-      options?: AddEventListenerOptions | boolean,
-  ) => void>;
+  let mockRegister: Mock<
+    (receiver: EventReceiver.Generic<[Event]>, options?: AddEventListenerOptions | boolean) => void
+  >;
   let onDomEvent: OnDomEvent<Event>;
   let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
@@ -25,7 +23,6 @@ describe('handleDomEvents', () => {
   });
 
   describe('allow', () => {
-
     it('registers event listener', () => {
       onDomEvent.do(handleDomEvents())(mockListener);
       expect(mockRegister).toHaveBeenCalled();
@@ -36,10 +33,12 @@ describe('handleDomEvents', () => {
     });
     it('respects capturing registration', () => {
       onDomEvent.do(handleDomEvents())(mockListener, false);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { passive: true, capture: false });
+      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), {
+        passive: true,
+        capture: false,
+      });
     });
     it('passivates event listener by default when options passed', () => {
-
       const opts: AddEventListenerOptions = {
         once: true,
         capture: true,
@@ -49,7 +48,6 @@ describe('handleDomEvents', () => {
       expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { ...opts, passive: true });
     });
     it('respects non-passive options', () => {
-
       const opts: AddEventListenerOptions = {
         once: true,
         passive: false,
@@ -60,7 +58,10 @@ describe('handleDomEvents', () => {
     });
     it('combines with `captureDomEvents`', () => {
       onDomEvent.do(captureDomEvents, handleDomEvents())(mockListener);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { capture: true, passive: true });
+      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), {
+        capture: true,
+        passive: true,
+      });
     });
   });
 

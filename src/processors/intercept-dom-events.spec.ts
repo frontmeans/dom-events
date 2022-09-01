@@ -5,11 +5,9 @@ import { OnDomEvent, onDomEventBy } from '../on-dom-event';
 import { interceptDomEvents } from './intercept-dom-events';
 
 describe('interceptDomEvents', () => {
-
-  let mockRegister: Mock<(
-      receiver: EventReceiver.Generic<[Event]>,
-      options?: AddEventListenerOptions | boolean,
-  ) => void>;
+  let mockRegister: Mock<
+    (receiver: EventReceiver.Generic<[Event]>, options?: AddEventListenerOptions | boolean) => void
+  >;
   let onDomEvent: OnDomEvent<Event>;
   let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
@@ -35,7 +33,9 @@ describe('interceptDomEvents', () => {
 
     events.send(event);
 
-    expect(stopImmediatePropagationSpy).toHaveBeenCalledWith(...([] as unknown[] as [unknown, unknown[]]));
+    expect(stopImmediatePropagationSpy).toHaveBeenCalledWith(
+      ...([] as unknown[] as [unknown, unknown[]]),
+    );
     expect(mockListener).toHaveBeenCalledWith(event);
   });
 });

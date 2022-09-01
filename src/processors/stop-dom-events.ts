@@ -14,16 +14,13 @@ import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
  * @returns DOM events sender.
  */
 export function stopDomEvents<TEvent extends Event>(
-    supplier: OnDomEvent<TEvent>,
+  supplier: OnDomEvent<TEvent>,
 ): OnDomEvent<TEvent> {
-  return onDomEventBy((
-      listener: DomEventListener<TEvent>,
-      opts?: AddEventListenerOptions | boolean,
-  ) => {
+  return onDomEventBy(
+    (listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean) => {
+      const receiver = eventReceiver(listener);
 
-    const receiver = eventReceiver(listener);
-
-    return supplier(
+      return supplier(
         {
           supply: receiver.supply,
           receive(context, event) {
@@ -32,6 +29,7 @@ export function stopDomEvents<TEvent extends Event>(
           },
         },
         opts,
-    );
-  });
+      );
+    },
+  );
 }

@@ -5,11 +5,9 @@ import { OnDomEvent, onDomEventBy } from '../on-dom-event';
 import { captureDomEvents } from './capture-dom-events';
 
 describe('captureDomEvents', () => {
-
-  let mockRegister: Mock<(
-      receiver: EventReceiver.Generic<[Event]>,
-      options?: AddEventListenerOptions | boolean,
-  ) => void>;
+  let mockRegister: Mock<
+    (receiver: EventReceiver.Generic<[Event]>, options?: AddEventListenerOptions | boolean) => void
+  >;
   let onDomEvent: OnDomEvent<Event>;
   let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
@@ -36,7 +34,6 @@ describe('captureDomEvents', () => {
     expect(mockRegister).toHaveBeenCalledWith(expect.anything(), false);
   });
   it('captures events by default when options passed', () => {
-
     const opts: AddEventListenerOptions = {
       once: true,
       passive: true,
@@ -46,7 +43,6 @@ describe('captureDomEvents', () => {
     expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { ...opts, capture: true });
   });
   it('respects non-capturing options', () => {
-
     const opts: AddEventListenerOptions = {
       once: true,
       capture: false,

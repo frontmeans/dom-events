@@ -1,4 +1,10 @@
-import { eventReceiver, EventReceiver, OnEvent, OnEvent__symbol, onEventBy } from '@proc7ts/fun-events';
+import {
+  eventReceiver,
+  EventReceiver,
+  OnEvent,
+  OnEvent__symbol,
+  onEventBy,
+} from '@proc7ts/fun-events';
 import { noop } from '@proc7ts/primitives';
 import type { Supply } from '@proc7ts/supply';
 
@@ -19,7 +25,6 @@ export type DomEventListener<TEvent extends Event> = EventReceiver<[TEvent]>;
  * @typeParam TEvent - Supported DOM event type.
  */
 export interface OnDomEvent<TEvent extends Event> extends OnEvent<[TEvent]> {
-
   /**
    * Starts sending DOM events to the given `listener`.
    *
@@ -29,14 +34,13 @@ export interface OnDomEvent<TEvent extends Event> extends OnEvent<[TEvent]> {
    * @returns A supply of DOM events from this sender to the given `listener`.
    */
   (listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean): Supply;
-
 }
 
 /**
  * @internal
  * @hidden
  */
-const OnDomEvent$sample = (/*#__PURE__*/ onEventBy<any>(noop));
+const OnDomEvent$sample = /*#__PURE__*/ onEventBy<any>(noop);
 
 /**
  * Converts a plain DOM event listener registration function to {@link OnDomEvent} sender.
@@ -47,15 +51,16 @@ const OnDomEvent$sample = (/*#__PURE__*/ onEventBy<any>(noop));
  * @returns An {@link OnDomEvent} sender registering event listeners with the given `register` function.
  */
 export function onDomEventBy<TEvent extends Event>(
-    register: (
-        this: void,
-        listener: EventReceiver.Generic<[TEvent]>,
-        opts?: AddEventListenerOptions | boolean,
-    ) => void,
+  register: (
+    this: void,
+    listener: EventReceiver.Generic<[TEvent]>,
+    opts?: AddEventListenerOptions | boolean,
+  ) => void,
 ): OnDomEvent<TEvent> {
-
-  const onDomEvent = ((listener: DomEventListener<TEvent>, opts?: AddEventListenerOptions | boolean): Supply => {
-
+  const onDomEvent = ((
+    listener: DomEventListener<TEvent>,
+    opts?: AddEventListenerOptions | boolean,
+  ): Supply => {
     const receiver = eventReceiver(listener);
     const { supply } = receiver;
 

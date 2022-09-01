@@ -5,11 +5,9 @@ import { OnDomEvent, onDomEventBy } from '../on-dom-event';
 import { stopDomEvents } from './stop-dom-events';
 
 describe('stopDomEvents', () => {
-
-  let mockRegister: Mock<(
-      receiver: EventReceiver.Generic<[Event]>,
-      options?: AddEventListenerOptions | boolean,
-  ) => void>;
+  let mockRegister: Mock<
+    (receiver: EventReceiver.Generic<[Event]>, options?: AddEventListenerOptions | boolean) => void
+  >;
   let onDomEvent: OnDomEvent<Event>;
   let mockListener: Mock<(event: Event) => void>;
   let events: EventNotifier<[Event]>;
