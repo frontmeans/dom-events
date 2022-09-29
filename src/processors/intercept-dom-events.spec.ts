@@ -33,9 +33,7 @@ describe('interceptDomEvents', () => {
 
     events.send(event);
 
-    expect(stopImmediatePropagationSpy).toHaveBeenCalledWith(
-      ...([] as unknown[] as [unknown, unknown[]]),
-    );
+    expect(stopImmediatePropagationSpy).toHaveBeenCalledWith();
     expect(mockListener).toHaveBeenCalledWith(event);
   });
 });

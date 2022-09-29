@@ -27,11 +27,17 @@ describe('captureDomEvents', () => {
   });
   it('captures events by default', () => {
     onDomEvent.do(captureDomEvents)(mockListener);
-    expect(mockRegister).toHaveBeenCalledWith(expect.anything(), true);
+    expect(mockRegister).toHaveBeenCalledWith(
+      expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+      true,
+    );
   });
   it('respects non-capturing registration', () => {
     onDomEvent.do(captureDomEvents)(mockListener, false);
-    expect(mockRegister).toHaveBeenCalledWith(expect.anything(), false);
+    expect(mockRegister).toHaveBeenCalledWith(
+      expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+      false,
+    );
   });
   it('captures events by default when options passed', () => {
     const opts: AddEventListenerOptions = {
@@ -40,7 +46,10 @@ describe('captureDomEvents', () => {
     };
 
     onDomEvent.do(captureDomEvents)(mockListener, opts);
-    expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { ...opts, capture: true });
+    expect(mockRegister).toHaveBeenCalledWith(
+      expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+      { ...opts, capture: true },
+    );
   });
   it('respects non-capturing options', () => {
     const opts: AddEventListenerOptions = {
@@ -49,6 +58,9 @@ describe('captureDomEvents', () => {
     };
 
     onDomEvent.do(captureDomEvents)(mockListener, opts);
-    expect(mockRegister).toHaveBeenCalledWith(expect.anything(), opts);
+    expect(mockRegister).toHaveBeenCalledWith(
+      expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+      opts,
+    );
   });
 });

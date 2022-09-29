@@ -29,14 +29,20 @@ describe('handleDomEvents', () => {
     });
     it('passivates event listener by default', () => {
       onDomEvent.do(handleDomEvents())(mockListener);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { passive: true });
+      expect(mockRegister).toHaveBeenCalledWith(
+        expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+        { passive: true },
+      );
     });
     it('respects capturing registration', () => {
       onDomEvent.do(handleDomEvents())(mockListener, false);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), {
-        passive: true,
-        capture: false,
-      });
+      expect(mockRegister).toHaveBeenCalledWith(
+        expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+        {
+          passive: true,
+          capture: false,
+        },
+      );
     });
     it('passivates event listener by default when options passed', () => {
       const opts: AddEventListenerOptions = {
@@ -45,7 +51,10 @@ describe('handleDomEvents', () => {
       };
 
       onDomEvent.do(handleDomEvents())(mockListener, opts);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), { ...opts, passive: true });
+      expect(mockRegister).toHaveBeenCalledWith(
+        expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+        { ...opts, passive: true },
+      );
     });
     it('respects non-passive options', () => {
       const opts: AddEventListenerOptions = {
@@ -54,14 +63,20 @@ describe('handleDomEvents', () => {
       };
 
       onDomEvent.do(handleDomEvents())(mockListener, opts);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), opts);
+      expect(mockRegister).toHaveBeenCalledWith(
+        expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+        opts,
+      );
     });
     it('combines with `captureDomEvents`', () => {
       onDomEvent.do(captureDomEvents, handleDomEvents())(mockListener);
-      expect(mockRegister).toHaveBeenCalledWith(expect.anything(), {
-        capture: true,
-        passive: true,
-      });
+      expect(mockRegister).toHaveBeenCalledWith(
+        expect.anything() as unknown as EventReceiver.Generic<[Event]>,
+        {
+          capture: true,
+          passive: true,
+        },
+      );
     });
   });
 
@@ -78,7 +93,7 @@ describe('handleDomEvents', () => {
 
       events.send(event);
 
-      expect(preventDefaultSpy).toHaveBeenCalledWith(...([] as unknown[] as [unknown, unknown[]]));
+      expect(preventDefaultSpy).toHaveBeenCalledWith();
       expect(mockListener).toHaveBeenCalledWith(event);
     });
   });
