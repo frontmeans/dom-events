@@ -1,5 +1,5 @@
 import { eventReceiver } from '@proc7ts/fun-events';
-import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
+import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event.js';
 
 /**
  * Creates an {@link OnDomEvent} sender preventing further propagation of events in the capturing and bubbling phases.

@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { EventNotifier, EventReceiver, onceOn, supplyOn } from '@proc7ts/fun-events';
 import { neverSupply, Supply } from '@proc7ts/supply';
 import type { Mock, SpyInstance } from 'jest-mock';
-import { OnDomEvent, onDomEventBy } from './on-dom-event';
+import { OnDomEvent, onDomEventBy } from './on-dom-event.js';
 
 describe('OnDomEvent', () => {
   let mockRegister: Mock<

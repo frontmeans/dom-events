@@ -2,8 +2,8 @@ import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { onceOn } from '@proc7ts/fun-events';
 import { noop } from '@proc7ts/primitives';
 import type { Mock } from 'jest-mock';
-import { DomEventDispatcher } from './dom-event-dispatcher';
-import { captureDomEvents } from './processors';
+import { DomEventDispatcher } from './dom-event-dispatcher.js';
+import { captureDomEvents } from './processors/capture-dom-events.js';
 
 describe('DomEventDispatcher', () => {
   let mockTarget: { [K in keyof EventTarget]: Mock<EventTarget[K]> };

@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { EventNotifier, EventReceiver } from '@proc7ts/fun-events';
 import type { Mock } from 'jest-mock';
-import { OnDomEvent, onDomEventBy } from '../on-dom-event';
-import { captureDomEvents } from './capture-dom-events';
-import { handleDomEvents } from './handle-dom-events';
+import { OnDomEvent, onDomEventBy } from '../on-dom-event.js';
+import { captureDomEvents } from './capture-dom-events.js';
+import { handleDomEvents } from './handle-dom-events.js';
 
 describe('handleDomEvents', () => {
   let mockRegister: Mock<

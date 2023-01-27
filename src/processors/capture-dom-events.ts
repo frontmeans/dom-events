@@ -1,4 +1,4 @@
-import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
+import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event.js';
 
 /**
  * Creates an {@link OnDomEvent} sender that enables event capturing by default.

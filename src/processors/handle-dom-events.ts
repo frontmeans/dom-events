@@ -1,5 +1,5 @@
 import { eventReceiver } from '@proc7ts/fun-events';
-import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
+import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event.js';
 
 /**
  * Creates a DOM events processor that enables or disables default DOM event handlers.

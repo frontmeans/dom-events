@@ -1,5 +1,5 @@
 import { eventReceiver } from '@proc7ts/fun-events';
-import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event';
+import { DomEventListener, OnDomEvent, onDomEventBy } from '../on-dom-event.js';
 
 /**
  * Creates an {@link OnDomEvent} sender preventing other listeners of the same event from being called.
