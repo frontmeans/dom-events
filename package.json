@@ -22,6 +22,7 @@
     "types": "./dist/dom-events.d.ts",
     "default": "./dist/dom-events.js"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "@proc7ts/fun-events": "^10.5.2"
   },
